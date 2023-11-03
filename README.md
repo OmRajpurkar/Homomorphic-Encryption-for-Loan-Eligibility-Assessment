@@ -24,16 +24,16 @@ We have established a hypothetical financial institution named "Bank of Kuber," 
    git clone https://github.com/yourusername/your-repo.git
    ```
 2. Create a virtual environment and activate it:
-   ```
+   ```bash
   python -m venv venv
   source venv/bin/activate
   ```
 4. Install the required packages:
-  ```
+  ```bash
   pip install -r requirements.txt
   ```
 5. Run the Flask application
-  ```
+  ```bash
   python loanClient.py
   python loanServer.py
   ```
