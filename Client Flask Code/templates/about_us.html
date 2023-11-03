@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+
+{% block title %} About Us {% endblock title %}
+
+{% block customCSS %}
+<link href="../static/css/about_us.css" rel="stylesheet">
+{% endblock customCSS %}
+
+{% block aboutustab %} active {% endblock aboutustab %}
+
+{% block style %}
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+{% endblock style %}
+
+{% block body %}
+
+<main>
+
+  <h1 class="text-center mt-5 mb-5">Our Team</h1>
+
+  <div class="container marketing">
+
+    <!-- 2 columns of text below the carousel -->
+    <div class="text-center row">
+      <div class="col-lg-3">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image x="0" y="0" width="140" height="140" xlink:href="../static/om_photo.jpg" />
+        </svg>
+        <h2 class="fw-normal">Om Rajpurkar</h2>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-3">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image x="0" y="0" width="140" height="140" xlink:href="../static/ria_photo.jpg" />
+        </svg>
+        <h2 class="fw-normal">Ria Shah</h2>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-3">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image x="0" y="0" width="140" height="140" xlink:href="../static/srusti_photo.jpg" />
+        </svg>
+        <h2 class="fw-normal">Srusti S</h2>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-3">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image x="0" y="0" width="140" height="140" xlink:href="../static/sai_photo.jpg" />
+        </svg>
+        <h2 class="fw-normal">Sai Charan</h2>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">"Fortress for Your Finances" - <span class="text-primary">Your Data, Your Privacy.</span></h2>
+        <p class="lead">Unlock the door to a secure future with our cutting-edge encryption. Discover how our unique client-side web app, with its homomorphic encryption, shields your sensitive financial information from prying eyes. Your data is your treasure, and we ensure it stays locked away from everyone, including us.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg img-thumbnail featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+          <image x="0" y="0" width="100%" height="100%" xlink:href="../static/Data_security.jpg" style="border-radius: 10px;"/>
+        </svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">"The Transparency You Deserve" - <span class="text-primary">Transparent and Trustworthy Service.</span></h2>
+        <p class="lead">We believe in more than just numbers. Our commitment to transparency sets us apart. Explore a world where your data is processed without human intervention, ensuring a level of trust that's unparalleled. Our promise is to safeguard your financial secrets and treat your privacy with the respect it deserves.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg img-thumbnail featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+          <image x="0" y="0" width="100%" height="100%" xlink:href="../static/Trust_service.jpg" />
+        </svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">"Beyond Compliance" - <span class="text-primary">Compliance and Competitive Edge.</span></h2>
+        <p class="lead">Navigate the complex world of data protection effortlessly. With us, you're not just meeting regulatory requirements; you're exceeding them. Our dedication to data security and privacy ensures we're in sync with the highest industry standards. Moreover, our pioneering use of homomorphic encryption places us at the forefront, making your experience with us not only secure and transparent but also technologically advanced.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg img-thumbnail featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+          <image x="0" y="0" width="100%" height="100%" xlink:href="../static/Compliance.jpg" />
+        </svg>
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+</main>
+
+<script>
+          document.body.classList.remove("text-center");
+</script>
+
+</script>
+
+{% endblock body %}

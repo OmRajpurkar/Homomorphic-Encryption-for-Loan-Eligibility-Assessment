@@ -1,0 +1,426 @@
+{% extends 'base.html' %}
+
+{% block title %} Loan Eligibility Calculator {% endblock title %}
+
+{% block customCSS %}
+<link href="../static/css/eligibility_calculator.css" rel="stylesheet">
+{% endblock customCSS %}
+
+{% block calculatortab %} active {% endblock calculatortab %}
+
+{% block style %}
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+        #incomeValue {
+          font-weight: bold;
+        }
+
+        #debtValue {
+          font-weight: bold;
+        }
+
+        #tenureValue {
+          font-weight: bold;
+        }
+
+        #interestValue {
+          font-weight: bold;
+        }
+
+        #pan {
+          font-weight: bold;
+        }
+
+        .form-label{
+            margin-top:0.5rem;
+            margin-bottom:0rem;
+        }
+
+{% endblock style %}
+
+{% block body %}
+
+<div class="container">
+  <main>
+    <form id="myForm" class="needs-validation" action="/fhe_home_loan_eligibility" method="POST" onsubmit="return validateDTI();" novalidate>
+    <div class="row g-5">
+      <h3 class="text-center">Calculate Home Loan Eligibility</h3>
+      <div class="col-md-4 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your Home Loan Eligibility</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Maximum Loan Amount</h6>
+              <small class="text-body-secondary">The uppermost amount bank can extend in loans</small>
+                <h4><strong><span id="initial_loan_amount" class="text-body-secondary">₹{{initial_loan_amount}}</span></strong></h4>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">EMI (Monthly)</h6>
+              <small class="text-body-secondary">The loan's fixed monthly installment</small>
+                <h6><span id="monthly_repayment_capacity" class="text-body-secondary">₹{{monthly_repayment_capacity}}</span></h6>
+            </div>
+          </li>
+        </ul>
+
+          <button id="submitBtn" class="w-100 btn btn-primary btn-lg" type="submit">Calculate Eligibility</button>
+
+          <div id="dtiError" class="alert alert-danger mt-3" role="alert">
+
+            </div>
+      </div>
+
+        <div class="col-md-1 col-lg-1">
+        </div>
+
+      <div class="col-md-6 col-lg-6">
+
+          <div class="row g-3">
+            <div class="">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h6><label for="pan" class="form-label">Permanent Account Number (PAN)</label></h6>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="pan" name="pan" value="{{pan}}" placeholder="" required>
+                        <div class="invalid-feedback">
+                            Valid PAN is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <h6><label for="incomeValue" class="form-label">Net Income (Monthly)</label></h6>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">₹</span>
+                            <input type="text" class="form-control" id="incomeValue" value={{incomeValue}} name="incomeValue" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Your Net Income is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <input type="range" class="slider" style="width: 100%" id="incomeRange" min="10000" max="10000000" step="1000" value={{incomeRange}}>
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <span id="min-value">₹ 10 K</span>
+                        </div>
+                        <div>
+                          <span id="max-value" class="text-right">₹ 1 Cr</span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+              <div class="col-12">
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <h6><label for="debtValue" class="form-label">Debt (Monthly)</label></h6>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">₹</span>
+                            <input type="text" class="form-control" id="debtValue" value={{debtValue}} name="debtValue" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Your Debt is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <input type="range" class="slider" style="width: 100%" id="debtRange" min="0" max="10000000" step="1000" value={{debtRange}}>
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <span id="min-value-debt">₹ 0</span>
+                        </div>
+                        <div>
+                          <span id="max-value-debt" class="text-right">₹ 1 Cr</span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+              <div class="col-12">
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <h6><label for="tenureValue" class="form-label">Tenure (Years)</label></h6>
+                    </div>
+                    <div class="col-2">
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group has-validation">
+                            <input type="text" class="form-control" id="tenureValue" value={{tenureValue}} name="tenureValue" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Your Tenure is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <input type="range" class="slider" style="width: 100%" id="tenureRange" min="1" max="30" step="1" value={{tenureValue}}>
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <span id="min-value-tenure">1</span>
+                        </div>
+                        <div>
+                          <span id="max-value-tenure" class="text-right">30</span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+              <div class="col-12">
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <h6><label for="interestValue" class="form-label">Interest Rate (% P.A.)</label></h6>
+                    </div>
+                    <div class="col-2">
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group has-validation">
+                            <input type="text" class="form-control" id="interestValue" name="interestValue" placeholder="" value={{interestValue}} required>
+                            <span class="input-group-text">%</span>
+                            <div class="invalid-feedback">
+                                Your Tenure is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <input type="range" class="slider" style="width: 100%" id="interestRange" min="0.5" max="15" step="0.1" value={{interestValue}}>
+                      <div class="d-flex justify-content-between">
+                        <div>
+                          <span id="min-value-interest">0.5</span>
+                        </div>
+                        <div>
+                          <span id="max-value-interest" class="text-right">15</span>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    </form>
+  </main>
+</div>
+   <script>
+          // JavaScript to update the text input and range based on each other's values
+
+          document.body.classList.remove("text-center");
+
+          const incomeRange = document.getElementById("incomeRange");
+          const incomeValue = document.getElementById("incomeValue");
+
+          // Initialize the initial values
+          // const initialValue = 25000; // 25,000
+          // incomeValue.value = formatCurrency(initialValue);
+          // incomeRange.value = initialValue;
+
+          // Update the text input when the range input changes
+          incomeRange.oninput = function() {
+            incomeValue.value = formatCurrency(this.value);
+          };
+
+          // Update the range input when the text input changes
+          incomeValue.oninput = function() {
+            incomeRange.value = this.value.replace(/\D/g, ''); // Remove non-numeric characters
+          };
+
+          // Helper function to format currency with commas
+          function formatCurrency(number) {
+            return Number(number).toLocaleString();
+          }
+
+          const debtRange = document.getElementById("debtRange");
+          const debtValue = document.getElementById("debtValue");
+
+          // Initialize the initial values
+          // const initialValueDebt = 0; // 25,000
+          // debtValue.value = formatCurrency(initialValueDebt);
+          // debtRange.value = initialValueDebt;
+
+          // Update the text input when the range input changes
+          debtRange.oninput = function() {
+            debtValue.value = formatCurrency(this.value);
+          };
+
+          // Update the range input when the text input changes
+          debtValue.oninput = function() {
+            debtRange.value = this.value.replace(/\D/g, ''); // Remove non-numeric characters
+          };
+
+          const tenureRange = document.getElementById("tenureRange");
+          const tenureValue = document.getElementById("tenureValue");
+
+          // Initialize the initial values
+          // const initialValueTenure = 30;
+          // tenureRange.value = initialValueTenure;
+          // tenureValue.value = initialValueTenure;
+
+          // Update the text input when the range input changes
+          tenureRange.oninput = function() {
+            tenureValue.value = this.value;
+          };
+
+          // Update the range input when the text input changes
+          tenureValue.oninput = function() {
+            tenureRange.value = this.value.replace(/\D/g, ''); // Remove non-numeric characters
+          };
+
+          const interestRange = document.getElementById("interestRange");
+          const interestValue = document.getElementById("interestValue");
+
+          // Initialize the initial values
+          // const initialValueInterest = 8.5;
+          // interestRange.value = initialValueInterest;
+          // interestValue.value = initialValueInterest;
+
+          // Update the text input when the range input changes
+          interestRange.oninput = function() {
+            interestValue.value = this.value;
+          };
+
+          // Update the range input when the text input changes
+          interestValue.oninput = function() {
+            interestRange.value = this.value.replace(/\D/g, ''); // Remove non-numeric characters
+          };
+
+          var div = document.getElementById("dtiError");
+          div.style.display = "none";  // Hide the div
+
+            function validateDTI() {
+                // Retrieve income and debt values
+                const income = parseFloat(document.getElementById('incomeValue').value.replace(/\D/g, ''));
+                const debt = parseFloat(document.getElementById('debtValue').value.replace(/\D/g, ''));
+
+                // Calculate DTI
+                const dti = (debt / income) * 100;
+
+                // Check DTI against the threshold (36%)
+                if (dti > 36) {
+                  // Display error message
+                  document.getElementById('dtiError').textContent = "Your Debt-to-Income (DTI) ratio of " + dti.toFixed(2) + "% exceeds the eligibility threshold. You are not eligible for this loan at this time.";
+                  document.getElementById('initial_loan_amount').textContent = "₹ 0.00"
+                  document.getElementById('monthly_repayment_capacity').textContent = "₹ 0.00"
+                  var div = document.getElementById("dtiError");
+                    div.style.display = "block";  // Show the div
+                  return false;  // Prevent form submission
+                } else {
+                  // Clear any previous error message
+                  document.getElementById('dtiError').textContent = "";
+                  var div = document.getElementById("dtiError");
+                    div.style.display = "none";  // Hide the div
+                  return true;  // Allow form submission
+                }
+              }
+
+            (function () {
+              'use strict'
+
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              var forms = document.querySelectorAll('.needs-validation')
+
+              console.log("before the button press")
+              // Loop over them and prevent submission
+              Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                  form.addEventListener('submit', function (event) {
+                  console.log("Pressed the button")
+                    if (!form.checkValidity()) {
+                      event.preventDefault()
+                      event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                  }, false)
+                })
+            })()
+
+    </script>
+
+{% endblock body %}
