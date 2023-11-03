@@ -44,15 +44,15 @@ Welcome to "Bank of Kuber," a virtual financial institution inspired by Indian m
 
 **Home Page**
 
-<img src="https://github.com/OmRajpurkar/Homomorphic-Encryption-for-Loan-Eligibility-Assessment/blob/main/Screenshots/Home_page.png" alt="alt text" width="850" height="450">
+<img src="https://github.com/OmRajpurkar/Homomorphic-Encryption-for-Loan-Eligibility-Assessment/blob/main/Screenshots/Home_page.png" alt="alt text" width="850" height="425">
 
 **Loan Eligibility Calculator**
 
-<img src="https://github.com/OmRajpurkar/Homomorphic-Encryption-for-Loan-Eligibility-Assessment/blob/main/Screenshots/Loan_eligibility.png" alt="alt text" width="850" height="450">
+<img src="https://github.com/OmRajpurkar/Homomorphic-Encryption-for-Loan-Eligibility-Assessment/blob/main/Screenshots/Loan_eligibility.png" alt="alt text" width="850" height="425">
 
 **About Us**
 
-<img src="https://github.com/OmRajpurkar/Homomorphic-Encryption-for-Loan-Eligibility-Assessment/blob/main/Screenshots/About_us.png" alt="alt text" width="850" height="450">
+<img src="https://github.com/OmRajpurkar/Homomorphic-Encryption-for-Loan-Eligibility-Assessment/blob/main/Screenshots/About_us.png" alt="alt text" width="850" height="425">
 
 ## References
 
