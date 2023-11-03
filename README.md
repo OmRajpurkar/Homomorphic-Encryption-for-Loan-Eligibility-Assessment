@@ -1,5 +1,6 @@
 # Homomorphic-Encryption-for-Loan-Eligibility-Assessment
-We have established a hypothetical financial institution named "Bank of Kuber," where "Kuber" symbolizes wealth in Indian mythology.
+
+Welcome to "Bank of Kuber," a virtual financial institution inspired by Indian mythology's concept of wealth. Our platform offers a comprehensive range of financial services, with a focus on responsible lending. Through our "Loan Eligibility Calculator," bank employees can assess a customer's creditworthiness by inputting essential details, such as PAN card number, income, debt, tenure, and interest rate. Our calculations provide the maximum loan amount and corresponding Equated Monthly Installment (EMI) for customers. Powered by homomorphic encryption, we ensure the secure exchange of sensitive customer data with a trusted third-party institute tasked with evaluating creditworthiness, preserving privacy and security.
 
 ## Table of Contents
 - [Features](#features)
