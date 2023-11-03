@@ -4,7 +4,7 @@ We have established a hypothetical financial institution named "Bank of Kuber," 
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
-- [Screenshot](#screenshot)
+- [Screenshots](#screenshots)
 
 ## Features
 - **Client Web App:**
@@ -20,20 +20,22 @@ We have established a hypothetical financial institution named "Bank of Kuber," 
 
 ## Installation
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   ```
-2. Create a virtual environment and activate it:
   ```bash
-    python -m venv venv
-    venv/Scripts/activate.bat
+  git clone https://github.com/yourusername/your-repo.git
+   ```
+3. Create a virtual environment and activate it:
+  ```bash
+  python -m venv venv
+  venv/Scripts/activate.bat
   ```
 3. Install the required packages:
   ```bash
-    pip install -r requirements.txt
+  pip install -r requirements.txt
   ```
 4. Run the Flask application
   ```bash
     python loanClient.py
     python loanServer.py
   ```
+
+## Screenshots
