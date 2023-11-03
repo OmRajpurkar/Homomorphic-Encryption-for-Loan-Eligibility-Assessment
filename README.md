@@ -24,7 +24,7 @@ We have established a hypothetical financial institution named "Bank of Kuber," 
    git clone https://github.com/yourusername/your-repo.git
    ```
 2. Create a virtual environment and activate it:
-   ```bash
+  ```bash
   python -m venv venv
   source venv/bin/activate
   ```
