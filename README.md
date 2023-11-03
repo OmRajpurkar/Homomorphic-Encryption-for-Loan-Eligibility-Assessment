@@ -25,15 +25,15 @@ We have established a hypothetical financial institution named "Bank of Kuber," 
    ```
 2. Create a virtual environment and activate it:
   ```bash
-  python -m venv venv
-  source venv/bin/activate
+    python -m venv venv
+    venv/Scripts/activate.bat
   ```
 3. Install the required packages:
   ```bash
-  pip install -r requirements.txt
+    pip install -r requirements.txt
   ```
 4. Run the Flask application
   ```bash
-  python loanClient.py
-  python loanServer.py
+    python loanClient.py
+    python loanServer.py
   ```
