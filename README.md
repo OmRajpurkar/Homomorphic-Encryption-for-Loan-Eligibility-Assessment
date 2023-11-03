@@ -28,11 +28,11 @@ We have established a hypothetical financial institution named "Bank of Kuber," 
   python -m venv venv
   source venv/bin/activate
   ```
-4. Install the required packages:
+3. Install the required packages:
   ```bash
   pip install -r requirements.txt
   ```
-5. Run the Flask application
+4. Run the Flask application
   ```bash
   python loanClient.py
   python loanServer.py
