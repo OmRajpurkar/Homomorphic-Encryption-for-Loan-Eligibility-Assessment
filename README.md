@@ -39,3 +39,6 @@ We have established a hypothetical financial institution named "Bank of Kuber," 
   ```
 
 ## Screenshots
+
+**Home Page**
+<img src="https://github.com/OmRajpurkar/Flower-Recognition-using-CoreML/blob/master/Screenshots/7.PNG" alt="alt text" width="200" height="450">
