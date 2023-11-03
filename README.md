@@ -5,6 +5,7 @@ We have established a hypothetical financial institution named "Bank of Kuber," 
 - [Features](#features)
 - [Installation](#installation)
 - [Screenshots](#screenshots)
+- [References](#references)
 
 ## Features
 - **Client Web App:**
@@ -41,4 +42,21 @@ We have established a hypothetical financial institution named "Bank of Kuber," 
 ## Screenshots
 
 **Home Page**
-<img src="https://github.com/OmRajpurkar/Flower-Recognition-using-CoreML/blob/master/Screenshots/7.PNG" alt="alt text" width="200" height="450">
+<img src="https://github.com/OmRajpurkar/Homomorphic-Encryption-for-Loan-Eligibility-Assessment/blob/main/Screenshots/Home_page.png" alt="alt text" width="200" height="450">
+
+**Loan Eligibility Calculator**
+<img src="https://github.com/OmRajpurkar/Homomorphic-Encryption-for-Loan-Eligibility-Assessment/blob/main/Screenshots/Loan_eligibility.png" alt="alt text" width="200" height="450">
+
+**About Us**
+<img src="https://github.com/OmRajpurkar/Homomorphic-Encryption-for-Loan-Eligibility-Assessment/blob/main/Screenshots/About_us.png" alt="alt text" width="200" height="450">
+
+## References
+
+
+[1] <a href="https://dl.acm.org/doi/abs/10.1145/1536414.1536440">Fully homomorphic encryption using ideal lattices</a>
+[2] Homomorphic Encryption for Arithmetic of Approximate Number 	(shttps://link.springer.com/chapter/10.1007/978-3-319-70694-8_15)
+[3] Bootstrapping for Approximate Homomorphic Encryption 	(https://link.springer.com/chapter/10.1007/978-3-319-78381-9_14)
+[4] Homomorphic encryption and data security in the cloud 	(https://wvvw.easychair.org/publications/download/HWfT)
+[5] Alice and Bob in Cipherspace 	(https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=78ce2ec2f2b3f965fbcc8	a71bdb2d11c2b099b17)
+[6] Faster homomorphic comparison operations for BGV and BFV (https://hal.science/hal-03506798/)
+[7] An Improved RNS Variant of the BFV Homomorphic Encryption Scheme 	(https://link.springer.com/chapter/10.1007/978-3-030-12612-4_5)
